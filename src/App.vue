@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class='headtitle'><h2>Q&A 게시판</h2></div>
+    <div class='search_box'>
+      <nav>
+        <router-link class="btn btn-primary" to="/boardlist">모든 게시글 보기</router-link> &nbsp;  
+        <router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link>
+      </nav>
+    </div>
+            <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: 'app'
+};
 </script>
 
 <style>
