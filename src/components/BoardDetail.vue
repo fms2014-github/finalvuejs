@@ -19,7 +19,7 @@
         <td>{{info.content}}</td>
       </tr>
     </table>
-    <button class="btn btn-primary" @click="updateboard()">수정</button> <button class="btn btn-primary" @click="delete_notice(info.no)">삭제</button> <button class="btn btn-primary" @click="goAnswer()">답글 달기</button>
+    <span v-if="user == info.id"><button class="btn btn-primary" @click="updateboard()" v-cloak>수정</button></span> <span v-if="user == info.id" v-cloak><button class="btn btn-primary" @click="delete_notice(info.no)">삭제</button></span> <span v-if="adminCheck == 1" v-cloak><button class="btn btn-primary" @click="goAnswer()">답글 달기</button></span>
   </div>
 </template>
 
@@ -28,7 +28,6 @@ import http from "../http-common";
 export default {
   props:["num"],
   name: "boarddetail",
-  
   data() {
     return {
       info: {
@@ -38,11 +37,14 @@ export default {
           createDate:'',
           content:'',
           refno:0,
-          answerseq:0
+          answerseq:0      
       },
+      user:'',
+      adminCheck:0,
       loading: true,
       errored: false
     };
+    
   },
   methods: {
     updateboard(){
@@ -59,8 +61,6 @@ export default {
       }else{
         str = "deleteQuestion";
       }
-      alert(str);
-      alert(noticenum);
       http
         .delete("/"+ str + "/" + noticenum).then(response => {
             if (response.data > 0) { 
@@ -77,7 +77,6 @@ export default {
     },
 
     getQuestionDetail(){
-
         http
             .get("/getQuestionDetail/"+ this.num)
             .then(response => (this.info = response.data))
@@ -94,4 +93,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  [v-cloak] {
+    display: none;
+  }
 </style>

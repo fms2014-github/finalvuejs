@@ -52,7 +52,7 @@ export default {
       alert(this.info.user);
       http
         .post("/insertQuestion", {
-          id: this.info.id,
+          id: this.info.user,
           title: this.info.title,
           content: this.info.content,
           refno: this.info.no

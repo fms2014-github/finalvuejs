@@ -1,20 +1,28 @@
 <template>
   <div id="app">
-    <div class='headtitle'><h2>Q&A 게시판</h2></div>
-    <div class='search_box'>
+    <div>
       <nav>
-        <router-link class="btn btn-primary" to="/boardlist">모든 게시글 보기</router-link> &nbsp;  
-        <router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link>
+        <span v-if="user != ''"><router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link></span>
       </nav>
     </div>
             <router-view/>
+            
   </div>
+  
 </template>
 
 <script>
 
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return{
+      user: ''
+    }
+  },
+  mounted(){
+    this.$router.push("/boardlist")
+  }
 };
 </script>
 
