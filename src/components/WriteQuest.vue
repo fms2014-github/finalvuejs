@@ -27,7 +27,7 @@
             </td>
           </tr>
         </table>
-        <button type="submit" name="button">게시글 작성</button>
+        <button type="submit" name="button">확인</button>
       </form>
     </div>
   </div>

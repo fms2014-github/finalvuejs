@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <div>
-      <nav>
-        <span v-if="user != ''"><router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link></span>
-      </nav>
+      
     </div>
             <router-view/>
-            
+
+    <!-- <span v-if="user != ''"><router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link></span> -->
   </div>
   
 </template>
@@ -35,4 +34,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

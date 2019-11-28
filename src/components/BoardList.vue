@@ -19,7 +19,7 @@
       </tbody>
     </table>
 
-
+    <span v-if="user != ''"><router-link class="btn btn-primary" to="/writequest">게시글 작성</router-link></span> 
   </div>
 </template>
 

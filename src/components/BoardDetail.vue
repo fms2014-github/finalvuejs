@@ -40,7 +40,7 @@ export default {
           answerseq:0      
       },
       user:'',
-      adminCheck:0,
+      adminCheck:1,
       loading: true,
       errored: false
     };
